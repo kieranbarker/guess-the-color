@@ -11,7 +11,11 @@
       colors: getColors()
     },
     template: function (props) {
-      return 'It works!';
+      return (
+        '<div class="swatches">' + props.colors.map(function (color) {
+          return '<button style="background: ' + color + ';"></button>';
+        }).join('') + '</div>'
+      );
     }
   });
 
