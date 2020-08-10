@@ -10,7 +10,7 @@
     data: {
       colors: getColors(),
       answer: null,
-      win: false
+      win: true
     },
     template: template
   });
@@ -20,11 +20,28 @@
   //
 
   /**
+   * Get the HTML for a win
+   * @returns {String} An HTML string
+   */
+  function getWinHTML () {
+    return (
+      '<div class="win">' +
+        '<h2>Correct!</h2>' +
+        '<button data-reset>Play Again</button>' +
+      '</div>'
+    );
+  }
+
+  /**
    * Get the template for the UI
    * @param   {Object} props The current state/data
    * @returns {String}       An HTML string
    */
   function template (props) {
+    if (props.win) {
+      return getWinHTML();
+    }
+
     return (
       '<p class="hex">' +
         '<code>' + props.answer + '</code>' +

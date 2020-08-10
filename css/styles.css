@@ -5,26 +5,30 @@
 }
 
 :root {
+  --navy: #133C55;
+  --white: #FFF;
   font: 16px/1.5 'IBM Plex Sans', sans-serif;
 }
 
-body, h1 {
-  margin: 0;
-}
-
 body {
-  color: #444;
+  margin: 0 0 1rem;
+  color: #222;
 }
 
 header {
-  padding: 4rem;
-  background: #133C55;
-  color: #FFF;
+  padding: 4rem 0;
+  background: var(--navy);
+  color: var(--white);
 }
 
 h1 {
+  margin: 0;
   font-size: 6rem;
   line-height: 1.1;
+}
+
+h2, .hex {
+  font-size: 3rem;
 }
 
 [role='doc-subtitle'] {
@@ -37,14 +41,30 @@ code {
 }
 
 button {
-  border: none;
-  border-radius: 1rem;
+  font: inherit;
 }
 
-button::after {
-  content: '';
-  display: block;
-  padding-bottom: 100%;
+[data-reset] {
+  padding: 1rem 2rem;
+  border: .25rem solid var(--navy);
+  border-radius: .25rem;
+  background: var(--white);
+  color: var(--navy);
+  font-size: 1.5rem;
+}
+
+[data-reset]:hover, [data-reset]:focus {
+  background: var(--navy);
+  color: var(--white);
+}
+
+[data-reset]:focus {
+  outline: .25rem dashed var(--navy);
+  outline-offset: .25rem;
+}
+
+[data-reset]:active {
+  transform: scale(.9);
 }
 
 .wrapper {
@@ -54,7 +74,6 @@ button::after {
 }
 
 .hex {
-  font-size: 3rem;
   text-transform: uppercase;
 }
 
@@ -62,4 +81,24 @@ button::after {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-column-gap: 2rem;
+}
+
+.swatches > button {
+  border: none;
+  border-radius: 1rem;
+}
+
+.swatches > button::after {
+  content: '';
+  display: block;
+  padding-bottom: 100%;
+}
+
+.win {
+  display: flex;
+  align-items: center;
+}
+
+.win > h2 {
+  margin-right: 2rem;
 }
