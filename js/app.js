@@ -13,6 +13,9 @@
     },
     template: function (props) {
       return (
+        '<p class="hex">' +
+          '<code>' + props.answer + '</code>' +
+        '</p>' +
         '<div class="swatches">' + props.colors.map(function (color) {
           return '<button style="background: ' + color + ';"></button>';
         }).join('') + '</div>'
