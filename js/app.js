@@ -17,7 +17,7 @@
           '<code>' + props.answer + '</code>' +
         '</p>' +
         '<div class="swatches">' + props.colors.map(function (color) {
-          return '<button style="background: ' + color + ';"></button>';
+          return '<button data-color="' + color + '" style="background: ' + color + ';"></button>';
         }).join('') + '</div>'
       );
     }
@@ -107,8 +107,9 @@
   app.render();
 
   app.elem.addEventListener('click', function (event) {
-    if (!event.target.matches('.swatches button')) return;
-    console.log('hello');
+    var color = event.target.getAttribute('data-color');
+    if (!color) return;
+    console.log(color);
   });
 
   console.log(app.data.colors, app.data.answer);
