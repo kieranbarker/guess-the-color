@@ -10,7 +10,7 @@
     data: {
       colors: getColors(),
       answer: null,
-      win: true
+      win: false
     },
     template: template
   });
@@ -135,12 +135,16 @@
     var color = event.target.getAttribute('data-color');
     if (!color) return;
 
+    var index = app.data.colors.indexOf(color);
+    if (index < 0) return;
+
     if (color === app.data.answer) {
-      alert('Correct!');
       app.data.win = true;
-    } else {
-      alert('Try again!');
+      return;
     }
+
+    alert('Try again!');
+    app.data.colors.splice(index, 1);
   });
 
   console.log(app.data.colors, app.data.answer);
