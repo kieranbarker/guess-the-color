@@ -123,15 +123,11 @@
     return colors[0];
   }
 
-  //
-  // Inits & Event Listeners
-  //
-
-  app.data.answer = chooseColor();
-
-  app.render();
-
-  app.elem.addEventListener('click', function (event) {
+  /**
+   * Take the user's turn
+   * @param {Object} event The Event object 
+   */
+  function takeTurn (event) {
     var color = event.target.getAttribute('data-color');
     if (!color) return;
 
@@ -145,6 +141,18 @@
 
     alert('Try again!');
     app.data.colors.splice(index, 1);
+  }
+
+  //
+  // Inits & Event Listeners
+  //
+
+  app.data.answer = chooseColor();
+
+  app.render();
+
+  app.elem.addEventListener('click', function (event) {
+    takeTurn(event);
   });
 
   console.log(app.data.colors, app.data.answer);
