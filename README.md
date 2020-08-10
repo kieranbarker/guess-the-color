@@ -1,2 +1,3 @@
-# guess-the-color
+# Guess the Color 🎨
+
 Do you know your hex values?
