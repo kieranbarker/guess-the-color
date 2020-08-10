@@ -7,11 +7,7 @@
   //
 
   var app = new Reef(document.querySelector('#app'), {
-    data: {
-      colors: getColors(),
-      answer: null,
-      win: false
-    },
+    data: {},
     template: template
   });
 
@@ -143,16 +139,27 @@
     app.data.colors.splice(index, 1);
   }
 
+  function start () {
+    app.data.colors = getColors();
+    app.data.answer = chooseColor();
+    app.data.win = false;
+  }
+
+  function reset (event) {
+    if (!event.target.hasAttribute('data-reset')) return;
+    start();
+  }
+
   //
   // Inits & Event Listeners
   //
 
-  app.data.answer = chooseColor();
-
-  app.render();
+  start();
 
   app.elem.addEventListener('click', function (event) {
     takeTurn(event);
+
+    reset(event);
   });
 
   console.log(app.data.colors, app.data.answer);
