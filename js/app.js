@@ -8,7 +8,8 @@
 
   var app = new Reef('#app', {
     data: {
-      colors: getColors()
+      colors: getColors(),
+      answer: null
     },
     template: function (props) {
       return (
@@ -82,12 +83,26 @@
     return colors;
   }
 
+  /**
+   * Choose a random color as the answer
+   * @returns {String} A random six-digit hex value
+   */
+  function chooseColor () {
+    var colors = Reef.clone(app.data.colors);
+
+    shuffle(colors);
+
+    return colors[0];
+  }
+
   //
   // Inits & Event Listeners
   //
 
+  app.data.answer = chooseColor();
+
   app.render();
 
-  console.log(app.data.colors);
+  console.log(app.data.colors, app.data.answer);
 
 })();
