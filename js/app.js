@@ -12,21 +12,28 @@
       answer: null,
       win: false
     },
-    template: function (props) {
-      return (
-        '<p class="hex">' +
-          '<code>' + props.answer + '</code>' +
-        '</p>' +
-        '<div class="swatches">' + props.colors.map(function (color) {
-          return '<button data-color="' + color + '" style="background: ' + color + ';"></button>';
-        }).join('') + '</div>'
-      );
-    }
+    template: template
   });
 
   //
   // Functions
   //
+
+  /**
+   * Get the template for the UI
+   * @param   {Object} props The current state/data
+   * @returns {String}       An HTML string
+   */
+  function template (props) {
+    return (
+      '<p class="hex">' +
+        '<code>' + props.answer + '</code>' +
+      '</p>' +
+      '<div class="swatches">' + props.colors.map(function (color) {
+        return '<button data-color="' + color + '" style="background: ' + color + ';"></button>';
+      }).join('') + '</div>'
+    );
+  }
 
   /**
    * Randomly shuffle an array
