@@ -29,6 +29,14 @@
   }
 
   /**
+   * Get the HTML for a color swatch
+   * @param {String} color The current color
+   */
+  function getSwatchHTML (color) {
+    return '<button data-color="' + color + '" style="background: ' + color + ';"></button>';
+  }
+
+  /**
    * Get the template for the UI
    * @param   {Object} props The current state/data
    * @returns {String}       An HTML string
@@ -42,9 +50,9 @@
       '<p class="hex">' +
         '<code>' + props.answer + '</code>' +
       '</p>' +
-      '<div class="swatches">' + props.colors.map(function (color) {
-        return '<button data-color="' + color + '" style="background: ' + color + ';"></button>';
-      }).join('') + '</div>'
+      '<div class="swatches">' +
+        props.colors.map(getSwatchHTML).join('') +
+      '</div>'
     );
   }
 
