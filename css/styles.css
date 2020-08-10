@@ -15,10 +15,13 @@ body {
   color: #222;
 }
 
+header, a, [data-reset]:hover, [data-reset]:focus {
+  color: var(--white);
+}
+
 header {
   padding: 4rem 0;
   background: var(--navy);
-  color: var(--white);
 }
 
 h1 {
@@ -34,6 +37,10 @@ h2, .hex {
 [role='doc-subtitle'] {
   font-style: italic;
   font-size: 1.5rem;
+}
+
+a:hover {
+  text-decoration: none;
 }
 
 code {
@@ -55,7 +62,6 @@ button {
 
 [data-reset]:hover, [data-reset]:focus {
   background: var(--navy);
-  color: var(--white);
 }
 
 [data-reset]:focus {
