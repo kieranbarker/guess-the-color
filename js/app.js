@@ -6,6 +6,7 @@
   // Variables
   //
 
+  // Create the Reef component
   var app = new Reef(document.querySelector('#app'), {
     data: {},
     template: template
@@ -42,10 +43,12 @@
    * @returns {String}       An HTML string
    */
   function template (props) {
+    // If the user has won, show the win screen
     if (props.win) {
       return getWinHTML();
     }
 
+    // Otherwise, show the color swatches
     return (
       '<p class="hex">' +
         '<code>' + props.answer + '</code>' +
@@ -94,7 +97,7 @@
       // Shuffle the hex values
       shuffle(hex);
 
-      // Append first hex value to the string
+      // Append the first hex value to the string
       color += hex[0];
     }
 
@@ -128,31 +131,42 @@
   }
 
   /**
-   * Take the user's turn
-   * @param {Object} event The Event object 
+   * Render the UI with the initial data
    */
-  function takeTurn (event) {
-    var color = event.target.getAttribute('data-color');
-    if (!color) return;
-
-    var index = app.data.colors.indexOf(color);
-    if (index < 0) return;
-
-    if (color === app.data.answer) {
-      app.data.win = true;
-      return;
-    }
-
-    alert('Try again!');
-    app.data.colors.splice(index, 1);
-  }
-
   function start () {
     app.data.colors = getColors();
     app.data.answer = chooseColor();
     app.data.win = false;
   }
 
+  /**
+   * Take the user's turn
+   * @param {Object} event The Event object 
+   */
+  function takeTurn (event) {
+    // Get the color that was clicked
+    var color = event.target.getAttribute('data-color');
+    if (!color) return;
+
+    // Get the index of the color in the colors array
+    var index = app.data.colors.indexOf(color);
+    if (index < 0) return;
+
+    // If the color was right, show win screen
+    if (color === app.data.answer) {
+      app.data.win = true;
+      return;
+    }
+
+    // Otherwise, keep playing
+    alert('Try again!');
+    app.data.colors.splice(index, 1);
+  }
+
+  /**
+   * Reset the game
+   * @param {Object} event The Event object
+   */
   function reset (event) {
     if (!event.target.hasAttribute('data-reset')) return;
     start();
@@ -162,11 +176,15 @@
   // Inits & Event Listeners
   //
 
+  // Start the game
   start();
 
+  // Handle click events
   app.elem.addEventListener('click', function (event) {
+    // Take the user's turn when a color swatch is clicked
     takeTurn(event);
 
+    // Reset the game when a reset button is clicked
     reset(event);
   });
 
