@@ -9,7 +9,8 @@
   var app = new Reef(document.querySelector('#app'), {
     data: {
       colors: getColors(),
-      answer: null
+      answer: null,
+      win: false
     },
     template: function (props) {
       return (
@@ -109,7 +110,13 @@
   app.elem.addEventListener('click', function (event) {
     var color = event.target.getAttribute('data-color');
     if (!color) return;
-    console.log(color);
+
+    if (color === app.data.answer) {
+      alert('Correct!');
+      app.data.win = true;
+    } else {
+      alert('Try again!');
+    }
   });
 
   console.log(app.data.colors, app.data.answer);
