@@ -49,6 +49,11 @@ code {
 
 button {
   font: inherit;
+  cursor: pointer;
+}
+
+button:active {
+  transform: scale(.9);
 }
 
 [data-reset] {
@@ -67,10 +72,6 @@ button {
 [data-reset]:focus {
   outline: .25rem dashed var(--navy);
   outline-offset: .25rem;
-}
-
-[data-reset]:active {
-  transform: scale(.9);
 }
 
 .wrapper {
