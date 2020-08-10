@@ -6,7 +6,7 @@
   // Variables
   //
 
-  var app = new Reef('#app', {
+  var app = new Reef(document.querySelector('#app'), {
     data: {
       colors: getColors(),
       answer: null
@@ -105,6 +105,10 @@
   app.data.answer = chooseColor();
 
   app.render();
+
+  app.elem.addEventListener('click', function (event) {
+    console.log(event.target);
+  });
 
   console.log(app.data.colors, app.data.answer);
 
