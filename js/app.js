@@ -38,6 +38,23 @@
   }
 
   /**
+   * Get the HTML for game play
+   * @param   {Object} props The current state/data
+   * @returns {String}       An HTML string
+   */
+  function getGameHTML (props) {
+    return (
+      '<p class="hex">' +
+        '<code>' + props.answer + '</code>' +
+      '</p>' +
+      '<p>Click on a swatch to make your guess!</p>' +
+      '<div class="swatches">' +
+        props.colors.map(getSwatchHTML).join('') +
+      '</div>'
+    );
+  }
+
+  /**
    * Get the template for the UI
    * @param   {Object} props The current state/data
    * @returns {String}       An HTML string
@@ -48,16 +65,8 @@
       return getWinHTML();
     }
 
-    // Otherwise, show the color swatches
-    return (
-      '<p class="hex">' +
-        '<code>' + props.answer + '</code>' +
-      '</p>' +
-      '<p>Click on a swatch to make your guess!</p>' +
-      '<div class="swatches">' +
-        props.colors.map(getSwatchHTML).join('') +
-      '</div>'
-    );
+    // Otherwise, show the game screen
+    return getGameHTML(props);
   }
 
   /**
