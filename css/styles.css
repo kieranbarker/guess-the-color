@@ -151,6 +151,6 @@ button:active {
  */
 
 .thumbs-up::after {
-  content: "👍";
+  content: '👍';
   margin-left: 1rem;
 }
