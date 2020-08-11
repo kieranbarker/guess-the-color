@@ -12,6 +12,7 @@
     template: template
   });
 
+
   //
   // Functions
   //
@@ -199,6 +200,7 @@
     // Reset the game when a reset button is clicked
     reset(event);
   }
+
 
   //
   // Inits & Event Listeners
