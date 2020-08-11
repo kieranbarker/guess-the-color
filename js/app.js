@@ -53,6 +53,7 @@
       '<p class="hex">' +
         '<code>' + props.answer + '</code>' +
       '</p>' +
+      '<p>Click on a swatch to make your guess!</p>' +
       '<div class="swatches">' +
         props.colors.map(getSwatchHTML).join('') +
       '</div>'
