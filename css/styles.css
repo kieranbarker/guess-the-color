@@ -26,9 +26,12 @@ header {
   background: var(--navy);
 }
 
+h1, h2 {
+  font-size: 3rem;
+}
+
 h1 {
   margin: 0;
-  font-size: 3rem;
   line-height: 1.1;
 }
 
@@ -36,10 +39,6 @@ h1 {
   h1 {
     font-size: 6rem;
   }
-}
-
-h2 {
-  font-size: 3rem;
 }
 
 [role='doc-subtitle'], [data-reset], .hex + p {
