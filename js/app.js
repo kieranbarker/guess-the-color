@@ -169,7 +169,10 @@
    * @param {Object} event The Event object
    */
   function reset (event) {
+    // If this wasn't a reset button, do nothing
     if (!event.target.hasAttribute('data-reset')) return;
+
+    // Reset the game
     start();
   }
 
