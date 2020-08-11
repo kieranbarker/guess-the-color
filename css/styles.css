@@ -142,3 +142,8 @@ button:active {
 .win > h2 {
   margin-right: 2rem;
 }
+
+.win > h2::after {
+  content: "✅";
+  margin-left: 1rem;
+}
