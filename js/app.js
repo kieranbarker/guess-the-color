@@ -23,10 +23,8 @@
    */
   function getWinHTML () {
     return (
-      '<div class="win">' +
         '<h2>Correct!</h2>' +
-        '<button data-reset>Play Again</button>' +
-      '</div>'
+      '<button data-reset>Play Again</button>'
     );
   }
 

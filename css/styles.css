@@ -28,17 +28,35 @@ header {
 
 h1 {
   margin: 0;
-  font-size: 6rem;
+  font-size: 3rem;
   line-height: 1.1;
+}
+
+@media (min-width: 48rem) {
+  h1 {
+    font-size: 6rem;
+  }
 }
 
 h2, .hex {
   font-size: 3rem;
 }
 
+h2 {
+  margin-right: 2rem;
+}
+
+h2::after {
+  content: "✅";
+  margin-left: 1rem;
+}
+
+[role='doc-subtitle'], [data-reset], .hex + p {
+  font-size: 1.5rem;
+}
+
 [role='doc-subtitle'] {
   font-style: italic;
-  font-size: 1.5rem;
 }
 
 a:hover {
@@ -74,7 +92,6 @@ button:active {
   border-radius: .25rem;
   background: var(--white);
   color: var(--navy);
-  font-size: 1.5rem;
 }
 
 [data-reset]:hover, [data-reset]:focus {
@@ -109,7 +126,6 @@ button:active {
 .hex + p {
   margin-top: 0;
   margin-bottom: 4rem;
-  font-size: 1.5rem;
 }
 
 
@@ -132,23 +148,4 @@ button:active {
   content: '';
   display: block;
   padding-bottom: 100%;
-}
-
-
-/**
- * Win screen
- */
-
-.win {
-  display: flex;
-  align-items: center;
-}
-
-.win > h2 {
-  margin-right: 2rem;
-}
-
-.win > h2::after {
-  content: "✅";
-  margin-left: 1rem;
 }
