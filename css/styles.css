@@ -73,31 +73,10 @@ button:active {
 
 
 /**
- * Reset button
- */
-
-[data-reset] {
-  padding: 1rem 2rem;
-  border: .25rem solid var(--navy);
-  border-radius: .25rem;
-  background: var(--white);
-  color: var(--navy);
-}
-
-[data-reset]:hover, [data-reset]:focus {
-  background: var(--navy);
-}
-
-[data-reset]:focus {
-  outline-color: var(--navy);
-}
-
-
-/**
  * Wrapper
  */
 
-.wrapper {
+ .wrapper {
   max-width: 60rem;
   padding: 0 1rem;
   margin: 0 auto;
@@ -148,4 +127,25 @@ button:active {
 .thumbs-up::after {
   content: '👍';
   margin-left: 1rem;
+}
+
+
+/**
+ * Reset button
+ */
+
+ [data-reset] {
+  padding: 1rem 2rem;
+  border: .25rem solid var(--navy);
+  border-radius: .25rem;
+  background: var(--white);
+  color: var(--navy);
+}
+
+[data-reset]:hover, [data-reset]:focus {
+  background: var(--navy);
+}
+
+[data-reset]:focus {
+  outline-color: var(--navy);
 }
