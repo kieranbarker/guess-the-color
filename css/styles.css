@@ -123,6 +123,10 @@ button:active {
   text-transform: uppercase;
 }
 
+.hex::after {
+  content: none;
+}
+
 .hex + p {
   margin-top: 0;
   margin-bottom: 4rem;

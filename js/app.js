@@ -43,9 +43,9 @@
    */
   function getGameHTML (props) {
     return (
-      '<p class="hex">' +
+      '<h2 class="hex">' +
         '<code>' + props.answer + '</code>' +
-      '</p>' +
+      '</h2>' +
       '<p>Click on a swatch to make your guess!</p>' +
       '<div class="swatches">' +
         props.colors.map(getSwatchHTML).join('') +
