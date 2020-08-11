@@ -58,6 +58,11 @@ button:active {
   transform: scale(.9);
 }
 
+:focus {
+  outline: .125rem dashed currentColor;
+  outline-offset: .125rem;
+}
+
 /**
  * Reset button
  */
@@ -76,8 +81,7 @@ button:active {
 }
 
 [data-reset]:focus {
-  outline: .25rem dashed var(--navy);
-  outline-offset: .25rem;
+  outline-color: var(--navy);
 }
 
 /**
