@@ -38,17 +38,8 @@ h1 {
   }
 }
 
-h2, .hex {
-  font-size: 3rem;
-}
-
 h2 {
-  margin-right: 2rem;
-}
-
-h2::after {
-  content: "👍";
-  margin-left: 1rem;
+  font-size: 3rem;
 }
 
 [role='doc-subtitle'], [data-reset], .hex + p {
@@ -152,4 +143,14 @@ button:active {
   content: '';
   display: block;
   padding-bottom: 100%;
+}
+
+
+/**
+ * Thumbs up
+ */
+
+.thumbs-up::after {
+  content: "👍";
+  margin-left: 1rem;
 }
