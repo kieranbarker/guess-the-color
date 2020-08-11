@@ -171,7 +171,7 @@
     }
 
     // Otherwise, keep playing
-    alert('Try again!');
+    alert('Try again. 😞');
     app.data.colors.splice(index, 1);
   }
 
