@@ -173,6 +173,18 @@
     start();
   }
 
+  /**
+   * Handle click events
+   * @param {Object} event The Event object
+   */
+  function handleClick (event) {
+    // Take the user's turn when a color swatch is clicked
+    takeTurn(event);
+
+    // Reset the game when a reset button is clicked
+    reset(event);
+  }
+
   //
   // Inits & Event Listeners
   //
@@ -181,13 +193,7 @@
   start();
 
   // Handle click events
-  app.elem.addEventListener('click', function (event) {
-    // Take the user's turn when a color swatch is clicked
-    takeTurn(event);
-
-    // Reset the game when a reset button is clicked
-    reset(event);
-  });
+  app.elem.addEventListener('click', handleClick);
 
   console.log(app.data.colors, app.data.answer);
 
