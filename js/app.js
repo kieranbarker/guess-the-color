@@ -118,10 +118,17 @@
    * @returns {Array} Three random colors
    */
   function getColors () {
-    var colors = [];
+    var randomColor, colors = [];
 
-    for (var i = 1; i <= 3; i++) {
-      colors.push(createColor());
+    while (colors.length < 3) {
+      // Assign a random color
+      randomColor = createColor();
+
+      // If the color already exists, skip this iteration
+      if (colors.indexOf(randomColor) > -1) continue;
+
+      // Otherwise, add the color to the array
+      colors.push(randomColor);
     }
 
     return colors;
