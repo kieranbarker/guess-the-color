@@ -51,9 +51,12 @@ h2::after {
   margin-left: 1rem;
 }
 
+[role='doc-subtitle'], [data-reset], .hex + p {
+  font-size: 1.5rem;
+}
+
 [role='doc-subtitle'] {
   font-style: italic;
-  font-size: 1.5rem;
 }
 
 a:hover {
@@ -89,7 +92,6 @@ button:active {
   border-radius: .25rem;
   background: var(--white);
   color: var(--navy);
-  font-size: 1.5rem;
 }
 
 [data-reset]:hover, [data-reset]:focus {
@@ -124,7 +126,6 @@ button:active {
 .hex + p {
   margin-top: 0;
   margin-bottom: 4rem;
-  font-size: 1.5rem;
 }
 
 
