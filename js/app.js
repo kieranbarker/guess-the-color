@@ -212,6 +212,4 @@
   // Handle click events
   app.elem.addEventListener('click', handleClick);
 
-  console.log(app.data.colors, app.data.answer);
-
 })();
