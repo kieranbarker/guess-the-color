@@ -133,10 +133,13 @@
    * @returns {String} A random six-digit hex value
    */
   function chooseColor () {
+    // Clone the colors array
     var colors = Reef.clone(app.data.colors);
 
+    // Shuffle the new array
     shuffle(colors);
 
+    // Return the first color from the shuffled array
     return colors[0];
   }
 
