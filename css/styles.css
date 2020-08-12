@@ -41,7 +41,7 @@ h1 {
   }
 }
 
-[role='doc-subtitle'], [data-reset], .hex + p {
+[role='doc-subtitle'], .warning, .hex + p, [data-reset] {
   font-size: 1.5rem;
 }
 
@@ -94,7 +94,21 @@ button:active {
 
 .hex + p {
   margin-top: 0;
-  margin-bottom: 4rem;
+}
+
+
+/**
+ * Warning
+ */
+
+.warning {
+  color: #F00;
+  visibility: hidden;
+}
+
+.warning::after {
+  content: '👎';
+  margin-left: .5rem;
 }
 
 

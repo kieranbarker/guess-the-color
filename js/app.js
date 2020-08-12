@@ -47,6 +47,7 @@
         '<code>' + props.answer + '</code>' +
       '</h2>' +
       '<p>Click on a swatch to make your guess!</p>' +
+      '<p class="warning" style="' + (props.error ? 'visibility: visible;' : '') + '">Try again!</p>' +
       '<div class="swatches">' +
         props.colors.map(getSwatchHTML).join('') +
       '</div>'
@@ -171,14 +172,21 @@
     var index = app.data.colors.indexOf(color);
     if (index < 0) return;
 
-    // If the color was right, show win screen
+    // If the color was correct, show the win screen
     if (color === app.data.answer) {
       app.data.win = true;
       return;
     }
 
-    // Otherwise, keep playing
-    alert('Try again. 😞');
+    // Otherwise, show an error
+    app.data.error = true;
+
+    // Hide the error after 2 seconds
+    setTimeout(function () {
+      app.data.error = false;
+    }, 2000);
+
+    // Remove the color that was clicked
     app.data.colors.splice(index, 1);
   }
 
