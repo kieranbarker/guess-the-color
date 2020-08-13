@@ -41,7 +41,7 @@ h1 {
   }
 }
 
-[role='doc-subtitle'], .warning, .hex + p, [data-reset] {
+p, [data-reset] {
   font-size: 1.5rem;
 }
 

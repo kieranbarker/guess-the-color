@@ -18,6 +18,14 @@
   //
 
   /**
+   * Get the HTML for an error message
+   * @returns {String} An HTML string
+   */
+  function getErrorHTML () {
+    return "<p>Sorry, there was a problem. Please try again later.</p>"
+  }
+
+  /**
    * Get the HTML for a win
    * @returns {String} An HTML string
    */
@@ -47,7 +55,7 @@
         '<code>' + props.answer.hex + '</code>' +
       '</h2>' +
       '<p>Click on a swatch to make your guess!</p>' +
-      '<p class="warning" style="' + (props.error ? 'visibility: visible;' : '') + '">Try again!</p>' +
+      '<p class="warning" style="' + (props.mistake ? 'visibility: visible;' : '') + '">Try again!</p>' +
       '<div class="swatches">' +
         props.colors.map(getSwatchHTML).join('') +
       '</div>'
@@ -60,6 +68,11 @@
    * @returns {String}       An HTML string
    */
   function template (props) {
+    // If there was an error getting the colors, show a message
+    if (props.error) {
+      return getErrorHTML();
+    }
+
     // If the user has won, show the win screen
     if (props.win) {
       return getWinHTML();
@@ -123,17 +136,37 @@
    * @param {Object} data The data from the colors.json file
    */
   function setData (data) {
+    // Three random colors
     app.data.colors = shuffle(data).slice(0, 3);
+
+    // One of the random colors
     app.data.answer = chooseColor();
+
+    // Whether the user has won
     app.data.win = false;
+
+    // Whether the user has made a mistake
+    app.data.mistake = false;
+
+    // Whether there was an error getting the colors
     app.data.error = false;
+  }
+
+  /**
+   * Handle errors in the Fetch chain
+   */
+  function handleError () {
+    app.data.error = true;
   }
 
   /**
    * Render the UI with the initial data
    */
   function start () {
-    fetch('../data/colors.json').then(getJSON).then(setData);
+    fetch('../data/colors.json')
+      .then(getJSON)
+      .then(setData)
+      .catch(handleError);
   }
 
   /**
@@ -156,12 +189,12 @@
       return;
     }
 
-    // Otherwise, show an error
-    app.data.error = true;
+    // Otherwise, let the user know they've made a mistake
+    app.data.mistake = true;
 
-    // Hide the error after 2 seconds
+    // Hide the mistake message after 2 seconds
     setTimeout(function () {
-      app.data.error = false;
+      app.data.mistake = false;
     }, 2000);
 
     // Remove the color that was clicked
