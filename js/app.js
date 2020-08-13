@@ -33,7 +33,7 @@
    * @param {String} color The current color
    */
   function getSwatchHTML (color) {
-    return '<button data-color="' + color + '" style="background: ' + color + ';"></button>';
+    return '<button data-color="' + color.hex + '" style="background: ' + color.hex + '; color: ' + color.hex + ';">' + color.name + '</button>';
   }
 
   /**
@@ -44,7 +44,7 @@
   function getGameHTML (props) {
     return (
       '<h2 class="hex">' +
-        '<code>' + props.answer + '</code>' +
+        '<code>' + props.answer.hex + '</code>' +
       '</h2>' +
       '<p>Click on a swatch to make your guess!</p>' +
       '<p class="warning" style="' + (props.error ? 'visibility: visible;' : '') + '">Try again!</p>' +
@@ -67,6 +67,15 @@
 
     // Otherwise, show the game screen
     return getGameHTML(props);
+  }
+
+  /**
+   * Get the JSON data from a Fetch request
+   * @param   {Object} response The response to the request
+   * @returns {Object}          The JSON data OR a rejected promise
+   */
+  function getJSON (response) {
+    return response.ok ? response.json() : Promise.reject(response);
   }
 
   /**
@@ -95,47 +104,6 @@
   }
 
   /**
-   * Create a random color value
-   * https://vanillajstoolkit.com/helpers/createcolor/
-   * @returns {String} A random six-digit hex value
-   */
-  function createColor () {
-    var hex = ['a', 'b', 'c', 'd', 'e', 'f', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
-    var color = '#';
-
-    for (var i = 1; i <= 6; i++) {
-      // Shuffle the hex values
-      shuffle(hex);
-
-      // Append the first hex value to the string
-      color += hex[0];
-    }
-
-    return color;
-  }
-
-  /**
-   * Get three random colors
-   * @returns {Array} Three random colors
-   */
-  function getColors () {
-    var randomColor, colors = [];
-
-    while (colors.length < 3) {
-      // Assign a random color
-      randomColor = createColor();
-
-      // If the color already exists, skip this iteration
-      if (colors.indexOf(randomColor) > -1) continue;
-
-      // Otherwise, add the color to the array
-      colors.push(randomColor);
-    }
-
-    return colors;
-  }
-
-  /**
    * Choose a random color as the answer
    * @returns {String} A random six-digit hex value
    */
@@ -151,12 +119,21 @@
   }
 
   /**
+   * Set the component data
+   * @param {Object} data The data from the colors.json file
+   */
+  function setData (data) {
+    app.data.colors = shuffle(data).slice(0, 3);
+    app.data.answer = chooseColor();
+    app.data.win = false;
+    app.data.error = false;
+  }
+
+  /**
    * Render the UI with the initial data
    */
   function start () {
-    app.data.colors = getColors();
-    app.data.answer = chooseColor();
-    app.data.win = false;
+    fetch('../data/colors.json').then(getJSON).then(setData);
   }
 
   /**
@@ -169,11 +146,12 @@
     if (!color) return;
 
     // Get the index of the color in the colors array
-    var index = app.data.colors.indexOf(color);
-    if (index < 0) return;
+    var index = app.data.colors.findIndex(function (value) {
+      return value.hex === color;
+    });
 
     // If the color was correct, show the win screen
-    if (color === app.data.answer) {
+    if (color === app.data.answer.hex) {
       app.data.win = true;
       return;
     }
@@ -219,7 +197,7 @@
   // Inits & Event Listeners
   //
 
-  // Start the game
+  // Render the UI with the initial data
   start();
 
   // Handle click events
