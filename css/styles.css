@@ -8,13 +8,14 @@
 
 :root {
   --navy: #133C55;
+  --near-black: #222;
   --white: #FFF;
   font: 16px/1.5 'IBM Plex Sans', sans-serif;
 }
 
 body {
   margin: 0 0 4rem;
-  color: #222;
+  color: var(--near-black);
 }
 
 header, a, [data-reset]:hover, [data-reset]:focus {
@@ -67,7 +68,7 @@ button:active {
 }
 
 :focus {
-  outline: .125rem dashed #222;
+  outline: .125rem dashed var(--near-black);
   outline-offset: .125rem;
 }
 
@@ -123,7 +124,7 @@ button:active {
 }
 
 .swatches > button {
-  border: .25rem solid #222;
+  border: .25rem solid var(--near-black);
   border-radius: 1rem;
 }
 
