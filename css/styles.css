@@ -54,6 +54,10 @@ a:hover {
   text-decoration: none;
 }
 
+a:focus {
+  outline-color: currentColor;
+}
+
 code {
   font-family: 'IBM Plex Mono', monospace;
 }
