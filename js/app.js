@@ -59,8 +59,7 @@
         '<span class="visually-hidden">Hex value: </span>' +
         '<code>' + props.answer.hex + '</code>' +
       '</p>' +
-      '<p>Click on a swatch to make your guess!</p>' +
-      '<h2 class="visually-hidden">Color swatches</h2>' +
+      '<p class="instructions">Click on a swatch to make your guess!</p>' +
       '<p class="warning" style="' + (props.mistake ? 'visibility: visible;' : '') + '">Try again!</p>' +
       '<div class="swatches">' +
         props.colors.map(getSwatchHTML).join('') +

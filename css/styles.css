@@ -94,7 +94,12 @@ button:active {
   text-transform: uppercase;
 }
 
-.hex + p {
+
+/**
+ * Instructions
+ */
+
+.instructions {
   margin-top: 0;
 }
 
