@@ -159,7 +159,3 @@ button:active {
 [data-reset]:hover, [data-reset]:focus {
   background: var(--navy);
 }
-
-[data-reset]:focus {
-  outline-color: var(--navy);
-}
