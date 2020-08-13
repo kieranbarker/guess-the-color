@@ -8,13 +8,14 @@
 
 :root {
   --navy: #133C55;
+  --near-black: #222;
   --white: #FFF;
   font: 16px/1.5 'IBM Plex Sans', sans-serif;
 }
 
 body {
   margin: 0 0 4rem;
-  color: #222;
+  color: var(--near-black);
 }
 
 header, a, [data-reset]:hover, [data-reset]:focus {
@@ -26,7 +27,7 @@ header {
   background: var(--navy);
 }
 
-h1, h2 {
+h1, h2, .hex {
   font-size: 3rem;
 }
 
@@ -41,7 +42,7 @@ h1 {
   }
 }
 
-[role='doc-subtitle'], .warning, .hex + p, [data-reset] {
+p, [data-reset] {
   font-size: 1.5rem;
 }
 
@@ -67,7 +68,7 @@ button:active {
 }
 
 :focus {
-  outline: .125rem dashed currentColor;
+  outline: .125rem dashed var(--near-black);
   outline-offset: .125rem;
 }
 
@@ -89,10 +90,16 @@ button:active {
 
 .hex {
   margin-bottom: 0;
+  font-weight: 700;
   text-transform: uppercase;
 }
 
-.hex + p {
+
+/**
+ * Instructions
+ */
+
+.instructions {
   margin-top: 0;
 }
 
@@ -123,7 +130,7 @@ button:active {
 }
 
 .swatches > button {
-  border: none;
+  border: .25rem solid var(--near-black);
   border-radius: 1rem;
 }
 
@@ -160,6 +167,21 @@ button:active {
   background: var(--navy);
 }
 
-[data-reset]:focus {
-  outline-color: var(--navy);
+
+/**
+ * Visually hide an element but keep it accessible to screen readers
+ * {@link https://github.com/h5bp/html5-boilerplate/blob/master/dist/css/main.css}
+ * {@link http://snook.ca/archives/html_and_css/hiding-content-for-accessibility}
+ * {@link https://github.com/h5bp/main.css/issues/12#issuecomment-321106995}
+ */
+
+.visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
 }
