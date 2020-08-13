@@ -168,7 +168,7 @@
    * Render the UI with the initial data
    */
   function start () {
-    fetch('data/colors.json')
+    fetch('./data/colors.json')
       .then(getJSON)
       .then(setData)
       .catch(handleError);
