@@ -42,8 +42,8 @@
    */
   function getSwatchHTML (color) {
     return (
-      '<button data-color="' + color.hex + '" style="background: ' + color.hex + '; color: ' + color.hex + ';">' +
-        color.name +
+      '<button data-color="' + color.hex + '" style="background: ' + color.hex + ';">' +
+        '<span class="visually-hidden">' + color.name + '</span>' +
       '</button>'
       );
   }
