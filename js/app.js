@@ -41,7 +41,11 @@
    * @param {String} color The current color
    */
   function getSwatchHTML (color) {
-    return '<button data-color="' + color.hex + '" style="background: ' + color.hex + '; color: ' + color.hex + ';">' + color.name + '</button>';
+    return (
+      '<button data-color="' + color.hex + '" style="background: ' + color.hex + '; color: ' + color.hex + ';">' +
+        color.name +
+      '</button>'
+      );
   }
 
   /**
