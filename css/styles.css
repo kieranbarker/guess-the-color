@@ -67,7 +67,7 @@ button:active {
 }
 
 :focus {
-  outline: .125rem dashed currentColor;
+  outline: .125rem dashed #222;
   outline-offset: .125rem;
 }
 
@@ -123,7 +123,7 @@ button:active {
 }
 
 .swatches > button {
-  border: none;
+  border: .25rem solid #222;
   border-radius: 1rem;
 }
 
