@@ -27,7 +27,7 @@ header {
   background: var(--navy);
 }
 
-h1, h2 {
+h1, h2, .hex {
   font-size: 3rem;
 }
 
@@ -90,6 +90,7 @@ button:active {
 
 .hex {
   margin-bottom: 0;
+  font-weight: 700;
   text-transform: uppercase;
 }
 

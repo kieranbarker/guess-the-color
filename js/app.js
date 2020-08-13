@@ -55,10 +55,12 @@
    */
   function getGameHTML (props) {
     return (
-      '<h2 class="hex">' +
+      '<p class="hex">' +
+        '<span class="visually-hidden">Hex value: </span>' +
         '<code>' + props.answer.hex + '</code>' +
-      '</h2>' +
+      '</p>' +
       '<p>Click on a swatch to make your guess!</p>' +
+      '<h2 class="visually-hidden">Color swatches</h2>' +
       '<p class="warning" style="' + (props.mistake ? 'visibility: visible;' : '') + '">Try again!</p>' +
       '<div class="swatches">' +
         props.colors.map(getSwatchHTML).join('') +
