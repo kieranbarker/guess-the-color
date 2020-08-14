@@ -61,7 +61,7 @@
       '</p>' +
       '<p class="instructions">Click on a swatch to make your guess!</p>' +
       '<p class="warning" style="' + (props.mistake ? 'visibility: visible;' : '') + '">Try again!</p>' +
-      '<div class="swatches">' +
+      '<div class="swatches" tabindex="-1">' +
         props.colors.map(getSwatchHTML).join('') +
       '</div>'
     );
@@ -204,6 +204,9 @@
 
     // Remove the color that was clicked
     app.data.colors.splice(index, 1);
+
+    // Return focus to the grid
+    event.target.parentElement.focus();
   }
 
   /**
